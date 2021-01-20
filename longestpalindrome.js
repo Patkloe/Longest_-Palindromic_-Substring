@@ -1,3 +1,4 @@
+// version 0.0.1
 function is_palindrome(t){
   var rev = "";
   for(var i = t.length - 1; i >= 0; i--){
