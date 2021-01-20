@@ -51,3 +51,34 @@ if(is_palindrome(s)){
 };
  var test = "abracaacbra";
      longestpalindrome(test);
+
+//version   0.0.2
+var longestPalindrome = function(s) {
+   let  p = '';
+    
+    // compare two pointer with initial value
+    const match = (l , r, temp) => {
+        
+        while(l >= 0 && r < s.length) {
+            
+            if(s[l] === s[r]) temp = s[l] + temp + s[r];
+            else break;
+            
+            l--;
+            r++;
+            
+        }
+        
+        if(temp.length > p.length) p = temp;
+        
+    };
+    
+    for(let i = 0; i < s.length; i++) {
+        
+        match(i - 1, i + 1, s[i]);  // match scenario with odd sequence ...aba...
+        match(i, i + 1, '');        // match scenario with even sequence ...bb...
+        
+    }
+    
+    return p;
+};
